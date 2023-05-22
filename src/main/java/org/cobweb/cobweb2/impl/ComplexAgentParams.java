@@ -225,6 +225,13 @@ public class ComplexAgentParams implements ResizableParam {
 	public MutatableInt partnerType = new MutatableInt(-1);
 
 	/**
+	 * type of agent that is generated as waste
+	 * */
+	@ConfDisplayName("agent type that is generated as waste")
+	@ConfXMLTag("poop")
+	public MutatableInt poop = new MutatableInt(-1);
+
+	/**
 	 * The possible agent type that this agent can give birth to
 	 */
 	@ConfDisplayName("Possible child type")
