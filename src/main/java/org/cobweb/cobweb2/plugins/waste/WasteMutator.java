@@ -2,11 +2,7 @@ package org.cobweb.cobweb2.plugins.waste;
 
 import java.util.Collection;
 
-import org.cobweb.cobweb2.core.Agent;
-import org.cobweb.cobweb2.core.Cause;
-import org.cobweb.cobweb2.core.Environment;
-import org.cobweb.cobweb2.core.Location;
-import org.cobweb.cobweb2.core.SimulationTimeSpace;
+import org.cobweb.cobweb2.core.*;
 import org.cobweb.cobweb2.plugins.DropManager;
 import org.cobweb.cobweb2.plugins.EnergyMutator;
 import org.cobweb.cobweb2.plugins.StatefulSpawnMutatorBase;
@@ -74,6 +70,7 @@ DropManager<Waste>{
 	}
 
 	private boolean tryPoop(Agent agent, WasteAgentParams agentParams) {
+
 		Collection<Location> target = environment.getNearLocations(agent.getPosition());
 		Location loc = null;
 		boolean replaceFood = false;
@@ -100,6 +97,12 @@ DropManager<Waste>{
 		if (replaceFood)
 			environment.removeFood(loc);
 
+		Direction dir = new Direction(0,1);
+		LocationDirection pooplocation = new LocationDirection(loc, dir);
+		int poopsuccess = agent.takeashit(pooplocation);
+		if(poopsuccess == 1){
+			return true;
+		}
 		Waste waste = new Waste(loc, agentParams.wasteInit.getValue(), agentParams.wasteDecay.getValue(), this, agent.getType());
 		environment.addDrop(loc, waste);
 		return true;

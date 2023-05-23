@@ -114,6 +114,19 @@ public class ComplexAgent extends Agent {
 		child.init(environment, location, this);
 		return child;
 	}
+	@Override
+	public int takeashit(LocationDirection location) {
+		int shittype = params.poop.getValue();
+		if(shittype != -1){
+			ComplexAgent child = new ComplexAgent(simulation, shittype);
+			child.init(environment, location, this);
+			return 1;
+		}
+		else{
+			return 0;
+		}
+
+	}
 
 	//prob = probability of creating a child of another type
 	private ComplexAgent createChildSexual(LocationDirection location, ComplexAgent otherParent) {

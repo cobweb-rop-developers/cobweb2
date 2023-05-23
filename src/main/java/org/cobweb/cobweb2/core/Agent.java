@@ -1,6 +1,8 @@
 package org.cobweb.cobweb2.core;
 
 
+import org.cobweb.cobweb2.impl.ComplexAgent;
+
 /**
  * Basic properties of an Agent
  */
@@ -20,6 +22,8 @@ public abstract class Agent implements Updatable {
 	public Agent(int type) {
 		this.type = type;
 	}
+
+	public abstract int takeashit(LocationDirection location);
 
 	public void die() {
 		assert (isAlive());
@@ -64,6 +68,7 @@ public abstract class Agent implements Updatable {
 	}
 
 	protected abstract Agent createChildAsexual(LocationDirection location);
+
 
 	@Override
 	public void update() {

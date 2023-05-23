@@ -44,6 +44,7 @@ public class Waste implements Drop {
 		}
 	}
 
+
 	@Override
 	public boolean canStep(Agent agent) {
 		WasteAgentParams agentParams = wasteManager.getAgentState(agent).agentParams;
