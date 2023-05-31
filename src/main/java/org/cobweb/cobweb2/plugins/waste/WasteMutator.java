@@ -99,7 +99,7 @@ DropManager<Waste>{
 
 		Direction dir = new Direction(0,1);
 		LocationDirection pooplocation = new LocationDirection(loc, dir);
-		int poopsuccess = agent.takeashit(pooplocation);
+		int poopsuccess = agent.takepoop(pooplocation);
 		if(poopsuccess == 1){
 			return true;
 		}
