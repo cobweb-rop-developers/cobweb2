@@ -115,7 +115,7 @@ public class ComplexAgent extends Agent {
 		return child;
 	}
 	@Override
-	public int takeashit(LocationDirection location) {
+	public int takeapoop(LocationDirection location) {
 		int shittype = params.poop.getValue();
 		if(shittype != -1){
 			ComplexAgent child = new ComplexAgent(simulation, shittype);
