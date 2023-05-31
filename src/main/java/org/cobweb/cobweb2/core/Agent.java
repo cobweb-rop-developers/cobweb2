@@ -23,7 +23,7 @@ public abstract class Agent implements Updatable {
 		this.type = type;
 	}
 
-	public abstract int takeashit(LocationDirection location);
+	public abstract int takeapoop(LocationDirection location);
 
 	public void die() {
 		assert (isAlive());
